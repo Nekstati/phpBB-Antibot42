@@ -1,0 +1,44 @@
+services:
+    nekstati.antibot42.hHMUM:
+        class: nekstati\antibot42\hHMUM
+        arguments:
+            - '@nekstati.antibot42.urM7S'
+            - '@nekstati.antibot42.l_KGC'
+        tags:
+            - { name: event.listener }
+
+    nekstati.antibot42.l_KGC:
+        class: nekstati\antibot42\l_KGC
+        arguments:
+            - '@auth'
+            - '@config'
+            - '@request'
+            - '@template'
+            - '@user'
+            - '%core.root_path%'
+            - '%core.php_ext%'
+            - '@nekstati.antibot42.qnGCA'
+        tags:
+            - { name: event.listener }
+
+    nekstati.antibot42.urM7S:
+        class: nekstati\antibot42\urM7S
+        arguments:
+            - '@config'
+            - '@request'
+            - '@template'
+            - '@user'
+            - '%core.root_path%'
+            - '%core.php_ext%'
+
+    nekstati.antibot42.qnGCA:
+        class: nekstati\antibot42\qnGCA
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@dbal.conn'
+            - '@template'
+            - '@user'
+            - '%core.root_path%'
+        calls:
+            - [lP2K4, ['@?router']] # Optional service that doesn’t exist in phpBB 3.1

@@ -1,0 +1,205 @@
+<!-- INCLUDE overall_header.html -->
+
+<style>
+	textarea {
+		resize: vertical;
+		min-height: 12em;
+		width: 99%;
+		white-space: pre-wrap;
+		font: 1em monospace;
+	}
+	textarea, textarea:hover, textarea:focus {
+		background: #f3f3f3;
+		color: #000;
+		border: inherit;
+	}
+	ul {
+		margin: 0 0 0 1em;
+	}
+	@media only screen and (min-width: 701px) {
+		p.submit-buttons {
+			margin-top: 12px;
+			font-size: 0.9em;
+		}
+		dl + p.submit-buttons {
+			border-top: 1px solid #CCC;
+			padding-top: 15px;
+		}
+		p.ab42-notice {
+			border-top: 1px solid #CCC;
+			border-bottom: 1px solid #CCC;
+			padding: 8px 0;
+			margin: 15px 0;
+		}
+		.ab42-header {
+			margin-top: -10px;
+		}
+	}
+	.warningbox {
+		background: #FFD5D5;
+		color: inherit;
+		border: 1px solid #ffbcbc;
+		border-radius: 4px;
+	}
+	fieldset:last-of-type {
+		background: #e8ffe8;
+	}
+	.ab42-header {
+		overflow: hidden;
+	}
+	.ab42-header img {
+		width: 65px;
+		float: left;
+		margin-right: 10px;
+	}
+	.ab42-header h1 {
+		margin-top: 10px;
+	}
+	fieldset a:link {
+		text-decoration: underline;
+	}
+</style>
+
+<a id="maincontent"></a>
+
+<div class="ab42-header">
+	<img src="{ROOT_PATH}ext/nekstati/antibot42/logo.png" alt="" />
+	<h1>{L_ACP_ANTIBOT42}</h1>
+	<p>{L_ACP_ANTIBOT42_SETTINGS_EXPLAIN}</p>
+</div>
+
+<!-- IF S_ERROR -->
+	<div class="errorbox">
+		<h3>{L_WARNING}</h3>
+		<p>{ERROR_MSG}</p>
+	</div>
+<!-- ENDIF -->
+
+<!-- IF ACP_ANTIBOT42_FEAT_LIMITED -->
+	<div class="warningbox">
+		{L_ACP_ANTIBOT42_VERSION_ALERT}
+	</div>
+<!-- ENDIF -->
+
+<form id="acp_board" method="post" action="{U_ACTION}">
+
+<fieldset>
+	<legend>{L_ACP_ANTIBOT42_SETTINGS}</legend>
+
+	<dl>
+		<dt><label for="antibot42_reg">{L_ACP_ANTIBOT42_REG}{L_COLON}</label><br /><span>{L_ACP_ANTIBOT42_REG_EXPLAIN}</span></dt>
+		<dd>
+			<label><input type="radio" class="radio" name="antibot42_config[reg]" value="1" <!-- IF ACP_ANTIBOT42_REG -->checked="checked"<!-- ENDIF --> id="antibot42_reg" /> {L_ACP_ANTIBOT42_REG_OPTION_1}</label>
+			<label><input type="radio" class="radio" name="antibot42_config[reg]" value="0" <!-- IF not ACP_ANTIBOT42_REG -->checked="checked"<!-- ENDIF --> /> {L_ACP_ANTIBOT42_REG_OPTION_0}</label>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="antibot42_log">{L_ACP_ANTIBOT42_LOG}{L_COLON}</label><br /><span>{L_ACP_ANTIBOT42_LOG_EXPLAIN}</span></dt>
+		<dd>
+			<label><input type="radio" class="radio" name="antibot42_config[log]" value="1" <!-- IF ACP_ANTIBOT42_LOG -->checked="checked"<!-- ENDIF --> id="antibot42_log" /> {L_ENABLED}</label>
+			<label><input type="radio" class="radio" name="antibot42_config[log]" value="0" <!-- IF not ACP_ANTIBOT42_LOG -->checked="checked"<!-- ENDIF --> /> {L_DISABLED}</label>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="antibot42_geoip">{L_ACP_ANTIBOT42_GEOIP}{L_COLON}</label><br /><span>{L_ACP_ANTIBOT42_GEOIP_EXPLAIN}</span></dt>
+		<dd>
+			<label><input type="radio" class="radio" name="antibot42_config[geoip]" value="1" <!-- IF ACP_ANTIBOT42_GEOIP -->checked="checked"<!-- ENDIF --> id="antibot42_geoip" /> {L_ENABLED}</label>
+			<label><input type="radio" class="radio" name="antibot42_config[geoip]" value="0" <!-- IF not ACP_ANTIBOT42_GEOIP -->checked="checked"<!-- ENDIF --> /> {L_DISABLED}</label>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="antibot42_ban">{L_ACP_ANTIBOT42_BAN}{L_COLON}</label><br /><span>{L_ACP_ANTIBOT42_BAN_EXPLAIN}</span></dt>
+		<dd>
+			<label><input type="radio" class="radio" name="antibot42_config[ban]" value="1" <!-- IF ACP_ANTIBOT42_BAN -->checked="checked"<!-- ENDIF --> id="antibot42_ban" /> {L_ENABLED}</label>
+			<label><input type="radio" class="radio" name="antibot42_config[ban]" value="0" <!-- IF not ACP_ANTIBOT42_BAN -->checked="checked"<!-- ENDIF --> /> {L_DISABLED}</label>
+		</dd>
+	</dl>
+
+	<p class="ab42-notice">{L_ACP_ANTIBOT42_METHODS_NOTICE}</p>
+
+	<dl>
+		<dt><label for="antibot42_method1">{L_ACP_ANTIBOT42_METHOD1}{L_COLON}</label><br /><span>{L_ACP_ANTIBOT42_METHOD1_EXPLAIN}</span></dt>
+		<dd>
+			<label><input type="radio" class="radio" name="antibot42_config[method1]" value="1" <!-- IF ACP_ANTIBOT42_METHOD1 -->checked="checked"<!-- ENDIF --> id="antibot42_method1" /> {L_ENABLED}</label>
+			<label><input type="radio" class="radio" name="antibot42_config[method1]" value="0" <!-- IF not ACP_ANTIBOT42_METHOD1 -->checked="checked"<!-- ENDIF --> /> {L_DISABLED}</label>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="antibot42_method2">{L_ACP_ANTIBOT42_METHOD2}{L_COLON}</label><br /><span>{L_ACP_ANTIBOT42_METHOD2_EXPLAIN}</span></dt>
+		<dd>
+			<label><input type="radio" class="radio" name="antibot42_config[method2]" value="1" <!-- IF ACP_ANTIBOT42_METHOD2 -->checked="checked"<!-- ENDIF --> id="antibot42_method2" /> {L_ENABLED}</label>
+			<label><input type="radio" class="radio" name="antibot42_config[method2]" value="0" <!-- IF not ACP_ANTIBOT42_METHOD2 -->checked="checked"<!-- ENDIF --> /> {L_DISABLED}</label>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="antibot42_method3">{L_ACP_ANTIBOT42_METHOD3}{L_COLON}</label><br /><span>{L_ACP_ANTIBOT42_METHOD3_EXPLAIN}</span></dt>
+		<dd>
+			<label><input type="radio" class="radio" name="antibot42_config[method3]" value="1" <!-- IF ACP_ANTIBOT42_METHOD3 -->checked="checked"<!-- ENDIF --> id="antibot42_method3" /> {L_ENABLED}</label>
+			<label><input type="radio" class="radio" name="antibot42_config[method3]" value="0" <!-- IF not ACP_ANTIBOT42_METHOD3 -->checked="checked"<!-- ENDIF --> /> {L_DISABLED}</label>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="antibot42_method4">{L_ACP_ANTIBOT42_METHOD4}{L_COLON}</label><br /><span>{L_ACP_ANTIBOT42_METHOD4_EXPLAIN}</span></dt>
+		<dd>
+			<label><input type="radio" class="radio" name="antibot42_config[method4]" value="1" <!-- IF ACP_ANTIBOT42_METHOD4 -->checked="checked"<!-- ENDIF --> <!-- IF ACP_ANTIBOT42_FEAT_LIMITED -->disabled="disabled"<!-- ENDIF --> id="antibot42_method4" /> {L_ENABLED}</label>
+			<label><input type="radio" class="radio" name="antibot42_config[method4]" value="0" <!-- IF not ACP_ANTIBOT42_METHOD4 -->checked="checked"<!-- ENDIF --> <!-- IF ACP_ANTIBOT42_FEAT_LIMITED -->disabled="disabled"<!-- ENDIF --> /> {L_DISABLED}</label>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="antibot42_method5">{L_ACP_ANTIBOT42_METHOD5}{L_COLON}</label><br /><span>{L_ACP_ANTIBOT42_METHOD5_EXPLAIN}</span></dt>
+		<dd>
+			<label><input type="radio" class="radio" name="antibot42_config[method5]" value="1" <!-- IF ACP_ANTIBOT42_METHOD5 -->checked="checked"<!-- ENDIF --> id="antibot42_method5" /> {L_ENABLED}</label>
+			<label><input type="radio" class="radio" name="antibot42_config[method5]" value="0" <!-- IF not ACP_ANTIBOT42_METHOD5 -->checked="checked"<!-- ENDIF --> /> {L_DISABLED}</label>
+		</dd>
+	</dl>
+
+	<p class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+	</p>
+	{S_FORM_TOKEN}
+</fieldset>
+
+<fieldset>
+	<legend>{L_ACP_ANTIBOT42_LOG_TEXT}</legend>
+
+	<!-- IF ACP_ANTIBOT42_GEOIP_NOTICE --><p>{ACP_ANTIBOT42_GEOIP_NOTICE}</p><!-- ENDIF -->
+
+	<textarea id="antibot42_log_text" rows="5" cols="45" readonly="readonly" class="no-auto-resize">{ACP_ANTIBOT42_LOG_TEXT}</textarea>
+
+	<p class="submit-buttons">
+		<input class="button2" type="button" id="antibot42_log_copy" value="{L_ACP_ANTIBOT42_LOG_COPY}" />&nbsp;
+		<input class="button2" type="submit" name="antibot42_log_delete" value="{L_ACP_ANTIBOT42_LOG_DELETE}" />
+	</p>
+</fieldset>
+
+<fieldset>
+	{L_ACP_ANTIBOT42_NOTICE}
+</fieldset>
+
+</form>
+
+<script>
+	var ab42textarea = document.querySelector('#antibot42_log_text');
+	ab42textarea.scrollTop = ab42textarea.scrollHeight;
+
+	document.querySelector('#antibot42_log_copy').addEventListener('click', function(event) {
+		ab42textarea.focus();
+		ab42textarea.select();
+
+		try {
+			document.execCommand('copy');
+			phpbb.alert('', '{LA_ACP_ANTIBOT42_LOG_COPIED}');
+		}
+		catch (err) {
+		}
+	});
+
+	document.addEventListener('DOMContentLoaded', function(event) {
+		var t = 'Antibot 42 includes GeoLite2 data created by MaxMind, available from <a href="https://www.maxmind.com">https://www.maxmind.com</a>';
+		var c = document.querySelector('.copyright');
+		c.innerHTML = c.innerHTML.replace('<br>', '<br>' + t + '<br>');
+	});
+</script>
+
+<!-- INCLUDE overall_footer.html -->

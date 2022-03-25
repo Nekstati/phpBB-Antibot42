@@ -1,0 +1,93 @@
+{# Compatibility with tas2580/regcheck v1.0.0 https://www.phpbb.com/customise/db/extension/ajax_regcheck/ #}
+
+<script>
+(function($) {
+	'use strict';
+	var regcheck_url = '{U_REGCHECK}';
+	$.fn.checkUsernameX = function() {
+		return this.each(function() {
+			var inputField = $('input[name={XT_USERNAME}]');
+			function trigger() {
+				var res = check(inputField.val());
+			}
+			function check(name){
+				$.getJSON(regcheck_url+'?username='+name,function(returndata){
+					$('#username_status_x').html(returndata['message']);
+					if(returndata['code'] === 1){
+						inputField.css('background-color','#a9f5a9');
+					} else {
+						inputField.css('background-color','#f5a9a9');
+					}
+				 });
+			}
+			inputField.bind('blur', trigger).after('<div id="username_status_x"></div>');
+		});
+	};
+	$.fn.checkEmailX = function() {
+		return this.each(function() {
+			var inputField = $('input[name={XT_EMAIL}]');
+			function trigger() {
+				var res = check(inputField.val());
+			}
+			function check(email) {
+				$.getJSON(regcheck_url+'?email='+email,function(returndata){
+
+					$('#email_status_x').html(returndata['message']);
+					if(returndata['code'] === 1){
+						inputField.css('background-color','#a9f5a9');
+					} else {
+						inputField.css('background-color','#f5a9a9');
+					}
+				 });
+			}
+			inputField.bind('blur', trigger).after('<div id="email_status_x"></div>');
+		});
+	};
+	$.fn.checkPasswordX = function() {
+		return this.each(function() {
+			var inputField = $('input[name={XT_NEW_PASSWORD}]');
+			function trigger() {
+				var res = check(inputField.val());
+			}
+			function check(new_password){
+				$.getJSON(regcheck_url+'?new_password='+new_password,function(returndata){
+
+					$('#password_status_x').html(returndata['message']);
+					if(returndata['code'] === 1){
+						inputField.css('background-color','#a9f5a9');
+					} else {
+						inputField.css('background-color','#f5a9a9');
+					}
+				 });
+			}
+			inputField.bind('blur', trigger).after('<div id="password_status_x"></div>');
+		});
+	};
+	$.fn.confirmPasswordX = function() {
+		return this.each(function() {
+			var inputField1 = $('input[name={XT_PASSWORD_CONFIRM}]');
+			var inputField2 = $('input[name={XT_NEW_PASSWORD}]');
+			function trigger() {
+				var res = check(inputField1.val(), inputField2.val());
+			}
+			function check(password_confirm, new_password) {
+				$.getJSON(regcheck_url+'?password_confirm='+password_confirm+'&new_password='+new_password,function(returndata){
+					$('#password_confirm_status_x').html(returndata['message']);
+					if(returndata['code'] === 1){
+						inputField1.css('background-color','#a9f5a9');
+					} else {
+						inputField1.css('background-color','#f5a9a9');
+					}
+				 });
+			}
+			inputField1.bind('blur', trigger).after('<div id="password_confirm_status_x"></div>');
+		});
+	};
+	$(function() {
+		$('input[name={XT_USERNAME}]').checkUsernameX();
+		$('input[name={XT_EMAIL}]').checkEmailX();
+		$('input[name={XT_NEW_PASSWORD}]').checkPasswordX();
+		$('input[name={XT_PASSWORD_CONFIRM}]').confirmPasswordX();
+	});
+})(jQuery);
+</script>
