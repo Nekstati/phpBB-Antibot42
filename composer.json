@@ -3,7 +3,7 @@
     "type": "phpbb-extension",
     "description": "Another way to eliminate spam on your forum. Maybe the best.",
     "homepage": "http://phpbbguru.net",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "license": "GPL-2.0",
     "authors": [
         {
