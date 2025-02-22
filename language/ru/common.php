@@ -20,4 +20,5 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'ANTIBOT42_JS_NOTICE'						=> 'Проверьте, включён ли JavaScript в вашем браузере.',
 	'ANTIBOT42_POSSIBLE_SPAMBOTS'				=> 'Возможные спам-боты',
+	'ANTIBOT42_RESTRICTED_WORDS'				=> 'Ошибка создания темы или сообщения',
 ));

@@ -34,6 +34,7 @@ class main_module
 		$config = $phpbb_container->get('config');
 		$request = $phpbb_container->get('request');
 		$template = $phpbb_container->get('template');
+		$config_text = $phpbb_container->get('config_text');
 
 		$this->tpl_name = 'antibot42';
 		$this->page_title = $user->lang('ACP_ANTIBOT42');
@@ -51,6 +52,8 @@ class main_module
 			{
 				trigger_error($user->lang('FORM_INVALID') . adm_back_link($this->u_action), E_USER_WARNING);
 			}
+
+			$config_text->set('antibot42_restrictedwords', $request->variable('antibot42_restrictedwords', '', true));
 
 			$new_config = $request->variable('antibot42_config', array('' => ''), true);
 
@@ -109,6 +112,7 @@ class main_module
 			'ACP_ANTIBOT42_LOG'				=> $ext_config['log'],
 			'ACP_ANTIBOT42_GEOIP'			=> $ext_config['geoip'],
 			'ACP_ANTIBOT42_BAN'				=> $ext_config['ban'],
+			'ACP_ANTIBOT42_RESTRICTEDWORDS'	=> $config_text->get('antibot42_restrictedwords'),
 			'ACP_ANTIBOT42_METHOD1'			=> $ext_config['method1'],
 			'ACP_ANTIBOT42_METHOD2'			=> $ext_config['method2'],
 			'ACP_ANTIBOT42_METHOD3'			=> $ext_config['method3'],

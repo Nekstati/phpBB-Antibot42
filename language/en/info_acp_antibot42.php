@@ -36,6 +36,9 @@ $lang = array_merge($lang, array(
 	'ACP_ANTIBOT42_BAN'					=> 'Ban possible spamers',
 	'ACP_ANTIBOT42_BAN_EXPLAIN'			=> 'Ban possible spamers by IP for 5 minutes after 10 attempts to bypass protection. The attempt counter will be reset to zero after the session has expired.',
 
+	'ACP_ANTIBOT42_RESTRICTEDWORDS'			=> 'List of restricted words',
+	'ACP_ANTIBOT42_RESTRICTEDWORDS_EXPLAIN'	=> 'It will be impossible to create a topic/post with these words. Affects everyone without exception.<br />Separate words with commas, case is not important.',
+
 	'ACP_ANTIBOT42_METHODS_NOTICE'		=> 'The following options are used for testing purposes. If you are not going to participate in the testing, leave all items enabled.',
 
 	'ACP_ANTIBOT42_METHOD1'				=> 'Spambot detection method #1',

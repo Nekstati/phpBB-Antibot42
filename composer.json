@@ -3,7 +3,7 @@
     "type": "phpbb-extension",
     "description": "Another way to eliminate spam on your forum. Maybe the best.",
     "homepage": "http://phpbbguru.net",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "license": "GPL-2.0",
     "authors": [
         {
@@ -22,7 +22,7 @@
         "geoip2/geoip2": "~2.0"
     },
     "extra": {
-        "display-name": "💡 Antibot 42",
+        "display-name": "Antibot 42",
         "soft-require": {
             "phpbb/phpbb": ">=3.2.9"
         }
