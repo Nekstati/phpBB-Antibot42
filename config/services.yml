@@ -1,14 +1,14 @@
 services:
-    nekstati.antibot42.m_Qev:
-        class: nekstati\antibot42\m_Qev
+    nekstati.antibot42.TrbYo:
+        class: nekstati\antibot42\TrbYo
         arguments:
-            - '@nekstati.antibot42.QT0JZ'
-            - '@nekstati.antibot42.DhEYv'
+            - '@nekstati.antibot42.OXPJH'
+            - '@nekstati.antibot42.vXdZ5'
         tags:
             - { name: event.listener }
 
-    nekstati.antibot42.DhEYv:
-        class: nekstati\antibot42\DhEYv
+    nekstati.antibot42.vXdZ5:
+        class: nekstati\antibot42\vXdZ5
         arguments:
             - '@auth'
             - '@config'
@@ -18,12 +18,12 @@ services:
             - '@config_text'
             - '%core.root_path%'
             - '%core.php_ext%'
-            - '@nekstati.antibot42.ft07_'
+            - '@nekstati.antibot42.w0yFc'
         tags:
             - { name: event.listener }
 
-    nekstati.antibot42.QT0JZ:
-        class: nekstati\antibot42\QT0JZ
+    nekstati.antibot42.OXPJH:
+        class: nekstati\antibot42\OXPJH
         arguments:
             - '@config'
             - '@request'
@@ -32,8 +32,8 @@ services:
             - '%core.root_path%'
             - '%core.php_ext%'
 
-    nekstati.antibot42.ft07_:
-        class: nekstati\antibot42\ft07_
+    nekstati.antibot42.w0yFc:
+        class: nekstati\antibot42\w0yFc
         arguments:
             - '@config'
             - '@controller.helper'
@@ -42,4 +42,4 @@ services:
             - '@user'
             - '%core.root_path%'
         calls:
-            - [NNefg, ['@?router']] # Optional service that doesn’t exist in phpBB 3.1
+            - [R9Sz0, ['@?router']] # Optional service that doesn’t exist in phpBB 3.1
